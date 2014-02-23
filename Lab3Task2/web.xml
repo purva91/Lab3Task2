@@ -7,7 +7,7 @@
    
    <servlet>
    		<servlet-name>home</servlet-name>
-   		<servlet-class>Lab3Task1</servlet-class>
+   		<servlet-class>Task2</servlet-class>
    </servlet>
    	
    	<servlet-mapping>
