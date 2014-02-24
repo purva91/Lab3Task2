@@ -9,8 +9,23 @@
    		<servlet-name>home</servlet-name>
    		<servlet-class>Task2</servlet-class>
    </servlet>
-   	
+   
    	<servlet-mapping>
+    	<servlet-name>NameServlet</servlet-name>
+	    <url-pattern>Name.html</url-pattern>
+  	</servlet-mapping>
+  
+  	<servlet-mapping>
+    	<servlet-name>DobLanguagesServlet</servlet-name>
+    	<url-pattern>doblang.html</url-pattern>
+  	</servlet-mapping>
+  
+  	<servlet-mapping>
+    	<servlet-name>DaysServlet</servlet-name>
+    	<url-pattern>Days.html</url-pattern>
+  	</servlet-mapping>
+   
+   <servlet-mapping>
    		<servlet-name>home</servlet-name>
    		<url-pattern>/home</url-pattern>
    	</servlet-mapping>

@@ -18,7 +18,7 @@ import org.apache.tomcat.util.http.Cookies;
 @WebServlet("/Task2")
 public class Task2 extends HttpServlet {
 
-	File file = new File("/Users/Cynosure/Downloads/ResultEntries.txt");
+	File file = new File("/ResultEntries.txt");
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -193,8 +193,10 @@ public class Task2 extends HttpServlet {
 			}
 		}
 
-		else {
+		else 
+		{
 			out.println("<html>Redirect to WebForm Pages</html>");
+			response.sendRedirect("Name.html");
 		}
 	}
 	

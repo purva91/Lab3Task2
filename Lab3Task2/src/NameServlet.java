@@ -14,10 +14,10 @@ import javax.servlet.http.HttpServletResponse;
  */
 
 @WebServlet("/NameServlet")
-public class NameServlet extends HttpServlet 
+public class NameServlet extends HttpServlet
 {
 
-	File file = new File("/Preferences.txt");
+	//File file = new File("/ResultEntries.txt");
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -39,7 +39,36 @@ public class NameServlet extends HttpServlet
 
 	protected void doGet(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException 
 	{
+		String fn;
+		String ln;
+		String id = null;
+		doPost(request, response);
+		
+		Cookie[] cookies = request.getCookies();
+		if (cookies != null) 
+		{
+			for (int i = 0; i < cookies.length; i++) 
+			{
+				if(cookies[i].getName().equals("user_id"))
+				{
+					if(cookies[i].getValue().equals(id))
+					{
+						if (cookies[i].getName().equals("firstname"))
+						{
+							fn = cookies[i].getValue();
+						}
+						else if(cookies[i].getName().equals("lastname"))
+						{
+							ln  = cookies[i].getValue();
+						}
+						
+					}
+				}
+				
+			}
+		}
 		//get the cookie information and display it in the field
+		response.sendRedirect("Name.html?firstname=fn&lastname=ln&userId=id");
 	}
 
 	/**
@@ -75,40 +104,19 @@ public class NameServlet extends HttpServlet
 	    if((lname == null))
 	    	lname  = "No Value";
 	    
-	    Cookie fn=new Cookie("firstname",fname);
-	    Cookie ln=new Cookie("lastname",lname);
+	    Cookie fn = new Cookie("firstname",fname);
+	    Cookie ln = new Cookie("lastname",lname);
+	    Cookie user_id = new Cookie("user_id", id);
 
 	    response.addCookie(fn);
 	    response.addCookie(ln);
-
 	    /*
-		while (params.hasMoreElements()) 
-		{
-			String paramN = (String) params.nextElement();
-			String[] paramV = request.getParameterValues(paramN);
-			if (paramV.length == 1) 
-			{
-				String paramValue = paramV[0];
-				if (paramValue.length() == 0)
-					fileEntry = fileEntry + "no value" + ",";
-				else
-					fileEntry = fileEntry + paramValue + ",";
-			}
+	    UserInfo info = null;
+	    info.user_id = id;
+	    info.firstName = fname;
+	    info.lastName = fname;
+	    */
 
-			else 
-			{
-				for (int i = 0; i < paramV.length; i++) 
-				{
-
-					if (paramV[i].length() == 0)
-						fileEntry = fileEntry + "no value" + " ";
-					else
-						fileEntry = fileEntry + paramV[i] + " ";
-				}
-			}
-
-		}
-		*/
-
+	    
 	}
 }

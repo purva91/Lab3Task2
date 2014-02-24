@@ -1,4 +1,4 @@
-<project name="Lab3Task1" default="deploy" basedir=".">
+<project name="Lab3Task2" default="deploy" basedir=".">
   <property file="build.properties"/>
 
   <!-- init target makes the directory structure. You may not
